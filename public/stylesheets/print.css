@@ -1,0 +1,41 @@
+body {
+  color: black;
+  font: Normal 9px Arial, Helvetica, sans-serif;
+  line-height: 16px;
+  margin: 0 auto;
+  padding: 0 auto;}
+
+header, footer, aside, nav, article, section {
+  display: block;
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 1px;}
+
+a {
+  color: black;
+  text-decoration: none;}
+
+h1 {
+  font-size: 18px;}
+
+h2 {
+  font-size: 12px;}
+
+nav {
+  display: none;}
+
+
+dl {
+  margin: 0px;}
+
+dt {
+  font-size: 12px;
+  padding-top: 15px;
+  padding-bottom: 5px;}
+
+dd {
+  margin-left: 0px;
+  padding-top: 5px;}
+
+span.emphasis {
+  font-weight: bold;}

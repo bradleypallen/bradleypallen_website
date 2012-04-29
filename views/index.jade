@@ -1,0 +1,26 @@
+header!= partial('header')
+nav!= partial('nav')
+article
+	dl
+		- var day = ''
+		- results.forEach(function(record){
+			- if (record.day != day) {
+				- day = record.day
+				dt= day
+			- }
+			dd
+				a(href='http://twitter.com/#!/bradleypallen/status/'+record._id)= record.body
+		- })
+footer
+	ul
+		- if (page > 0)
+			li
+				a(href='/?p='+(page-1)) &#9664;
+		- else
+			li &#9665;
+		li #{(page*limit+1)} - #{Math.min(count, (page+1)*limit)} of #{count} results
+		- if (page < Math.floor(count / limit))
+			li
+				a(href='/?p='+(page+1)) &#9654;
+		- else
+			li &#9655;
