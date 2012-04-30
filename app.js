@@ -1,5 +1,12 @@
 /**
  * @author Bradley Allen
+ * @fileOverview An Express.js application for bradleypallen.org
+ * @param int port the port for listening for HTTP requests
+ * @param str dbhost the MongoDB server hostname
+ * @param int dbport the MongoDB server port
+ * @param str dbuser the MongoDB server user account name
+ * @param str dbpassword the MongoDB server user account password
+ * @see http://bradleypallen.org/colophon
  */
 
 var express = require('express');
@@ -38,12 +45,12 @@ var limit = 30;
 var sort = [['date', 'desc']];
 
 app.get('/', function(req, res){
-  requestHandlers.results_page(req, res, 'index', { host: process.env.DBHOST, 
-        port: process.env.DBPORT,
+  requestHandlers.results_page(req, res, 'index', { host: argv.dbhost, 
+        port: argv.dbport,
   	database: db,
   	collection: coll,
-  	user: process.env.DBUSER,
-  	password: process.env.DBPASSWORD,
+  	user: argv.dbuser,
+  	password: argv.dbpassword,
   	query: {},
         limit: 15,
   	sort: sort,
@@ -64,6 +71,6 @@ app.get('/colophon', function(req, res){
   res.render('colophon', { title: 'Bradley P. Allen', subtitle: 'Colophon'  });
 });
 
-app.listen(process.env.PORT, function(){
+app.listen(argv.port, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
