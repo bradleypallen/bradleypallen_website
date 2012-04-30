@@ -2,10 +2,6 @@
  * @author Bradley Allen
  */
 
-/**
- * Arguments: node app.js --port <port> --dbhost <mongoHost> --dbport <mongoPort> --dbuser <user> --dbpassword <password>
- */
-
 var express = require('express');
 
 var requestHandlers = require('./requestHandlers');
@@ -42,12 +38,12 @@ var limit = 30;
 var sort = [['date', 'desc']];
 
 app.get('/', function(req, res){
-  requestHandlers.results_page(req, res, 'index', { host: argv.dbhost, 
-        port: argv.dbport,
+  requestHandlers.results_page(req, res, 'index', { host: process.env.DBHOST, 
+        port: process.env.DBPORT,
   	database: db,
   	collection: coll,
-  	user: argv.dbuser,
-  	password: argv.dbpassword,
+  	user: process.env.DBUSER,
+  	password: process.env.DBPASSWORD,
   	query: {},
         limit: 15,
   	sort: sort,
@@ -68,6 +64,6 @@ app.get('/colophon', function(req, res){
   res.render('colophon', { title: 'Bradley P. Allen', subtitle: 'Colophon'  });
 });
 
-app.listen(argv.port, function(){
+app.listen(process.env.PORT, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
