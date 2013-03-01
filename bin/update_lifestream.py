@@ -66,7 +66,7 @@ if __name__ == "__main__":
                       'day': iso8601_date(status), 
                       'body': status.text,
                       'tag': [ tag['text'] for tag in status.entities['hashtags'] ], 
-                      'site': [ domain(link['url']) for link in status.entities['urls'] ], 
+                      # 'site': [ domain(link['url']) for link in status.entities['urls'] ], 
                       'friend': [ user['screen_name'] for user in status.entities['user_mentions'] ] } 
                      for status in tweepy.Cursor(api.user_timeline, since_id=since_id, include_entities=1, screen_name=options.screen_name).items() 
                    ]
