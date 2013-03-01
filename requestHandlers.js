@@ -5,7 +5,7 @@
 var mongodb = require('mongodb');
 
 function results_page(req, res, view, options) {
-    var client = new mongodb.Db(options.database, new mongodb.Server(options.host, options.port, {}), {});
+    var client = new mongodb.Db(options.database, new mongodb.Server(options.host, options.port, {}), {w: -1, safe:false});
     var n = 0;
     client.open(function(err, db) {
         client.authenticate(options.user, options.password, function(err, replies) {
@@ -21,15 +21,19 @@ function results_page(req, res, view, options) {
                     });
                     cursor.toArray(function(err, records) {
                         if (records !== null) {
-                            res.render(view, {
-				title: options.title,
-				subtitle: options.subtitle,
-                                results: records,
-				query: options.query,
-                                page: page,
-                                count: n,
-                                limit: options.limit
-                            });
+                            res.render(view,    
+                                        {
+				                            title: options.title,
+				                            subtitle: options.subtitle,
+                                            results: records,
+				                            query: options.query,
+                                            page: page,
+                                            count: n,
+                                            limit: options.limit
+                                        }
+                            );
+                        } else {
+                            res.send(500);
                         }
                         db.close();
                     });

@@ -45,6 +45,10 @@ var limit = 30;
 var sort = [['date', 'desc']];
 
 app.get('/', function(req, res){
+  res.render('about', { title: 'Bradley P. Allen', subtitle: ''  });
+});
+
+app.get('/statuses', function(req, res){
   requestHandlers.results_page(req, res, 'index', { host: argv.dbhost, 
         port: argv.dbport,
   	database: db,
@@ -60,10 +64,6 @@ app.get('/', function(req, res){
 });
 
 app.get('/cv.xhtml', function(req, res){
-  res.render('about', { title: 'Bradley P. Allen', subtitle: 'About'  });
-});
-
-app.get('/about', function(req, res){
   res.render('about', { title: 'Bradley P. Allen', subtitle: 'About'  });
 });
 
