@@ -2,8 +2,8 @@
 
 ## Requirements
 
-* [Node][7]
-* [NPM][8]
+* Node
+* NPM
 
 ## Installation
 
