@@ -1,24 +1,24 @@
-header!= partial('header')
-nav!= partial('nav')
-article
-	p
-		| This site is designed by Bradley P. Allen and hosted on 
-		a(href='http://aws.amazon.com') Amazon Web Services
-		|  with
-		a(href='http://github.com/bradleypallen/bradleypallen_website/')  the project repository
-		|  hosted at 
-		a(href='www.github.com') Github
-		|. The site is written in HTML5, CSS3 and JavaScript using 
-		a(href='http://nodejs.org') Node.js
-		|  and the 
-		a(href='http://expressjs.com') Express
-		|  Web application framework, with 
-		a(href='http://jade-lang.com/') Jade
-		|  view rendering and 
-		a(href='http://sass-lang.com/') Sass
-		|  styling. Lifestream data used in the site is stored in a 
-		a(href='http://www.10gen.com') MongoDB
-		|  database hosted at 
-		a(href='http://www.mongohq.com') MongoHQ
-		|.
-footer
+doctype html
+html('lang'='en')
+	include head
+body
+	include header
+	include nav
+	article
+		p  
+			| This site is designed by Bradley P. Allen and hosted on 
+			a(href='http://aws.amazon.com') Amazon Web Services
+			|  with
+			a(href='http://github.com/bradleypallen/bradleypallen_website/')  the project repository
+			|  hosted at 
+			a(href='www.github.com') Github
+			|. The site is written in HTML5, CSS3 and JavaScript using 
+			a(href='http://nodejs.org') Node.js
+			|  and the 
+			a(href='http://expressjs.com') Express
+			|  Web application framework, with 
+			a(href='http://jade-lang.com/') Jade
+			|  view rendering and 
+			a(href='http://sass-lang.com/') Sass
+			|  styling.
+	footer
